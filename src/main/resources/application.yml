@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///test?characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: root
+  #自动创建表 更新
+  jpa:
+    hibernate:
+      ddl-auto: update
+      #显示sql
+    show-sql: true

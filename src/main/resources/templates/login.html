@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Signin Template for Bootstrap</title>
+		<!-- Bootstrap core CSS -->
+		<link href="/asserts/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="/asserts/css/signin.css" rel="stylesheet">
+	</head>
+
+	<body class="text-center">
+		<form class="form-signin" action="dashboard.html" th:action="@{/login}" method="post">
+			<img class="mb-4" src="/asserts/img/bootstrap-solid.svg" alt="" width="72" height="72">
+			<!--接收控制端返回的信息 如果msg不为空 才显示这个段落信息 -->
+			<p style="color: red" th:text="${msg}" th:if="${msg != null}"></p>
+			<!--取出国际化信息 用#{文件名.字段}-->
+			<h1 class="h3 mb-3 font-weight-normal" th:text="#{login.Please}">Please sign in</h1>
+			<label class="sr-only" th:text="#{login.Username}">Username</label>
+			<input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" th:placeholder="#{login.Username}">
+			<label class="sr-only" th:text="#{login.Password}">Password</label>
+			<input type="password" class="form-control" name="password" placeholder="Password" required="" th:placeholder="#{login.Password}">
+			<div class="checkbox mb-3">
+				<label>
+					<!--文字在输入框外面 用双括号-->
+          <input type="checkbox" value="remember-me" > [[#{login.Remember}]]
+        </label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.SignIn}">Sign in</button>
+			<p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+			<!-- th:href链接. 请求地址是@{请求} 添加参数thymeleaf里是()里填写参数 字母l参数名 后面值-->
+			<a class="btn btn-sm" th:href="@{/index(l='zh_CN')}">中文</a>
+			<a class="btn btn-sm" th:href="@{/index(l='en_US')}">English</a>
+		</form>
+
+	</body>
+
+</html>
